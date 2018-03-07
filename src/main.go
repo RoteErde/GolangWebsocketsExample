@@ -8,8 +8,6 @@ import (
 	"github.com/gorilla/websocket"
 )
 
-import "fmt"
-
 func echo(w http.ResponseWriter, r *http.Request) {
 	//https://godoc.org/github.com/gorilla/websocket#Upgrader.Subprotocols
 	var upgrader = websocket.Upgrader{
@@ -46,5 +44,4 @@ func main() {
 	flag.Parse()
 	http.HandleFunc("/ws", echo)
 	http.ListenAndServe(*addr, nil)
-	fmt.Print("hello world")
 }
